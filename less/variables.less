@@ -14,12 +14,19 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         #428bca;
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
+@brand-primary:         #336699;
+@brand-success:         @brand-primary; // Todo: Come up with a success color
+@brand-info:            #fff1d6;
+@brand-warning:         #f6e69f;
 @brand-danger:          #d9534f;
 
+@brand-primary-bg-darker: darken(@brand-primary-bg, 4%);
+@brand-primary-bg: #C3E3F8;
+@brand-primary-bg-lighter: lighten(@brand-primary-bg, 4%);
+@brand-primary-bg-lightest: #EBF3FC;
+
+@orangered: #FF4500;
+@periwinkle: #7e6ff3;
 
 //== Scaffolding
 //
@@ -40,7 +47,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  verdana, arial, helvetica, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -100,14 +107,14 @@
 @line-height-large:         1.33;
 @line-height-small:         1.5;
 
-@border-radius-base:        4px;
-@border-radius-large:       6px;
-@border-radius-small:       3px;
+@border-radius-base:        2px;
+@border-radius-large:       4px;
+@border-radius-small:       1px;
 
 //** Global color for active items (e.g., navs or dropdowns).
-@component-active-color:    #fff;
+@component-active-color:    inherit;
 //** Global background color for active items (e.g., navs or dropdowns).
-@component-active-bg:       @brand-primary;
+@component-active-bg:       @brand-primary-bg-darker;
 
 //** Width of the `border` for generating carets that indicator dropdowns.
 @caret-width-base:          4px;
@@ -140,31 +147,31 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-font-weight:                normal;
+@btn-font-weight:                bold;
 
 @btn-default-color:              #333;
 @btn-default-bg:                 #fff;
 @btn-default-border:             #ccc;
 
-@btn-primary-color:              #fff;
-@btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-color:              @brand-primary;
+@btn-primary-bg:                 @brand-primary-bg-lightest;
+@btn-primary-border:             darken(@btn-primary-bg, 8%);
 
-@btn-success-color:              #fff;
-@btn-success-bg:                 @brand-success;
-@btn-success-border:             darken(@btn-success-bg, 5%);
+@btn-success-color:              @brand-success;
+@btn-success-bg:                 #EBF3FC;
+@btn-success-border:             darken(@btn-success-bg, 8%);
 
-@btn-info-color:                 #fff;
+@btn-info-color:                 @gray-dark;
 @btn-info-bg:                    @brand-info;
-@btn-info-border:                darken(@btn-info-bg, 5%);
+@btn-info-border:                darken(@btn-info-bg, 8%);
 
-@btn-warning-color:              #fff;
+@btn-warning-color:              @gray-dark;
 @btn-warning-bg:                 @brand-warning;
-@btn-warning-border:             darken(@btn-warning-bg, 5%);
+@btn-warning-border:             darken(@btn-warning-bg, 8%);
 
-@btn-danger-color:               #fff;
+@btn-danger-color:               @gray-dark;
 @btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              darken(@btn-danger-bg, 5%);
+@btn-danger-border:              darken(@btn-danger-bg, 8%);
 
 @btn-link-disabled-color:        @gray-light;
 
@@ -476,20 +483,20 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text:             #3c763d;
-@state-success-bg:               #dff0d8;
+@state-success-text:             @brand-success;
+@state-success-bg:               @brand-primary-bg-lightest;
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                #31708f;
-@state-info-bg:                  #d9edf7;
+@state-info-text:                @text-color;
+@state-info-bg:                  @brand-info;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text:             #8a6d3b;
-@state-warning-bg:               #fcf8e3;
+@state-warning-text:             @text-color;
+@state-warning-bg:               @brand-warning;
 @state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
 
-@state-danger-text:              #a94442;
-@state-danger-bg:                #f2dede;
+@state-danger-text:              @text-color;
+@state-danger-bg:                @brand-danger;
 @state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
 
 
@@ -544,23 +551,29 @@
 //
 //##
 
+@label-default-color: @text-color;
+@label-default-border-color: #CCC;
+
 //** Default label background color
-@label-default-bg:            @gray-light;
+@label-default-bg:            #FFF;
 //** Primary label background color
-@label-primary-bg:            @brand-primary;
+@label-primary-bg:            @brand-primary-bg-lighter;
 //** Success label background color
-@label-success-bg:            @brand-success;
+@label-success-bg:            @brand-primary-bg;
 //** Info label background color
 @label-info-bg:               @brand-info;
 //** Warning label background color
 @label-warning-bg:            @brand-warning;
+@label-warning-color:         @text-color;
+
 //** Danger label background color
 @label-danger-bg:             @brand-danger;
 
+
 //** Default label text color
-@label-color:                 #fff;
+@label-color:                 @text-color;
 //** Default text color of a linked label
-@label-link-hover-color:      #fff;
+@label-link-hover-color:      @link-color;
 
 
 //== Modals
@@ -746,13 +759,13 @@
 //
 //##
 
-@badge-color:                 #fff;
+@badge-color:                 @orangered;
 //** Linked badge text color on hover
-@badge-link-hover-color:      #fff;
-@badge-bg:                    @gray-light;
+@badge-link-hover-color:      @orangered;
+@badge-bg:                    #fff;
 
 //** Badge text color in active nav link
-@badge-active-color:          @link-color;
+@badge-active-color:          @orangered;
 //** Badge background color in active nav link
 @badge-active-bg:             #fff;
 

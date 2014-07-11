@@ -1,3 +1,13 @@
+# Snooboots notes
+
+There are probably smarter ways to do this, but to test this theme without taking forever I'm doing:
+
+```
+grunt less autoprefixer csscomb uglify:bootstrap uglify:docsJs cssmin usebanner copy && jekyll serve
+```
+
+And browsing to http://localhost:9001/examples/theme/#
+
 # [Bootstrap](http://getbootstrap.com)
 [![Bower version](https://badge.fury.io/bo/bootstrap.svg)](http://badge.fury.io/bo/bootstrap)
 [![NPM version](https://badge.fury.io/js/bootstrap.svg)](http://badge.fury.io/js/bootstrap)
