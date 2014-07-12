@@ -54,8 +54,11 @@
 .btn-primary { .btn-gradient(#FFF, @btn-primary-bg, @btn-primary-border); }
 .btn-success { .btn-gradient(#FFF, @btn-success-bg, @btn-success-border); }
 .btn-info { .btn-gradient(#FFF, @btn-info-bg, @btn-info-border); }
-.btn-warning { .btn-gradient(#FFF, @btn-warning-bg, @btn-warning-border); }
-.btn-danger { .btn-gradient(#FFF, @btn-danger-bg, @btn-danger-border); }
+.btn-warning { .btn-gradient(#FFA, @btn-warning-bg, @btn-warning-border); }
+.btn-danger {
+  .btn-gradient(#FAA, @btn-danger-bg, @btn-danger-border);
+  text-shadow: 0 0 1px rgba(0,0,0,0.65);
+}
 
 
 //
@@ -97,4 +100,8 @@
 }
 
 
+//
+// Forms
+// --------------------------------------------------
 
+// Todo: Change outline style on inputs? Feels very bootstrappy and kinda overkill.
